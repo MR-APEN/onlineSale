@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "a7a51cd9-bd0e-49cf-b6fd-6a343dfd00fb",
+		"name": "Proyecto Bimestral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37585551"
+	},
+	"item": [
+		{
+			"name": "Registrar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Jose",
+							"type": "text"
+						},
+						{
+							"key": "surname",
+							"value": "Alvarez",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "jalva",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jalvarez@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Jalva12345$",
+							"type": "text"
+						},
+						{
+							"key": "profilePicture",
+							"type": "file",
+							"src": "/C:/Users/Informatica/Downloads/user1.jpg"
+						},
+						{
+							"key": "phone",
+							"value": "11224455",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3002/onlineSale/v1/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "jjax@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Jax12345$",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:3002/onlineSale/v1/auth/login"
+			},
+			"response": []
+		}
+	]
+}
