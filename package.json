@@ -1,0 +1,39 @@
+{
+  "name": "onlinesale",
+  "version": "1.0.0",
+  "description": "API web registro de ventas, productos en línea y otras operaciones comerciales de una empresa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MR-APEN/onlineSale.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Express",
+    "MongoDB"
+  ],
+  "author": "Javier Apen",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/MR-APEN/onlineSale/issues"
+  },
+  "homepage": "https://github.com/MR-APEN/onlineSale#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "mongoose": "^8.10.0",
+    "morgan": "^1.10.0",
+    "onlinesale": "file:",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
