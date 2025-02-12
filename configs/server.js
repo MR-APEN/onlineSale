@@ -3,6 +3,7 @@ import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
+import authRoute from "../src/auth/auth.routes.js"
 import apiLimiter from "../src/middlewares/request-validator.js"
 import { swaggerDocs, swaggerUi } from "./documentation.js"
 
@@ -30,6 +31,7 @@ const middlewares = (app) => {
 }
 
 const routes = (app) => {
+    app.use("/onlineSale/v1/auth", authRoute)
     app.use("/apid-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
