@@ -3,6 +3,8 @@ import { emailExist, usernameExist } from "../helpers/db-validators.js"
 import { validateField } from "./field-validator.js"
 import { deleteFileOnError } from "./delete-file-on-error.js"
 import { handleErrors } from "./handle-erros.js"
+import { validateJWT } from "./validator-jwt.js"
+import { hasRoles } from "./role-validator.js"
 
 export const registerValidator = [
     body("name", "El nombre es requerido").notEmpty(),
@@ -26,6 +28,12 @@ export const loginValidator = [
     body("email").optional().isEmail().withMessage("No es un email válido"),
     body("username").optional().isString().withMessage("Username es en formáto erróneo"),
     body("password").isLength({min: 4}).withMessage("El password debe contener al menos 8 caracteres"),
+    validateField,
+    handleErrors
+]
+
+export const updateUserValidator = [
+    validateJWT,
     validateField,
     handleErrors
 ]

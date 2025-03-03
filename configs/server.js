@@ -6,6 +6,7 @@ import { dbConnection } from "./mongo.js"
 import authRoute from "../src/auth/auth.routes.js"
 import apiLimiter from "../src/middlewares/request-validator.js"
 import { swaggerDocs, swaggerUi } from "./documentation.js"
+import userRoute from "../src/user/user.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -32,7 +33,8 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/onlineSale/v1/auth", authRoute)
-    app.use("/apid-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+    app.use("/onlineSale/v1/user", userRoute)
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
 const connectDB = async () => {
