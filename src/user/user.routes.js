@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { updateUser } from "./user.controller.js"
-import { updateUserValidator } from "../middlewares/user-validator.js"
+import { updateUser, updateAnotherUser } from "./user.controller.js"
+import { updateUserValidator, updateAnotherUserValidator } from "../middlewares/user-validator.js"
 
 const router = Router()
 
@@ -34,5 +34,7 @@ const router = Router()
  *         description: Error en la solicitud
  */
 router.put("/updateUser", updateUserValidator, updateUser)
+
+router.put("/updateAnotherUser", updateAnotherUserValidator, updateAnotherUser)
 
 export default router

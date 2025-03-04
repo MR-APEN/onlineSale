@@ -28,9 +28,15 @@ export const defaultUserAdmin = async () => {
 export const updateUser = async (req, res) => {
     try {
         const { _id } = req.usuario
-        const data = req.body 
+        const data = req.body
 
+        const user = await User.findById(_id)
 
+        if(data.role === "ADMIN_ROLE" && user.role !== "ADMIN_ROLE") {
+            return res.status(402).json({
+                message: "No puedes editar tu role"
+            })
+        }
 
         const  userUpdate = await User.findByIdAndUpdate(_id, data, {new: true})
 
@@ -44,6 +50,28 @@ export const updateUser = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error al intentar actualizar usuario :(",
+            error: err.message
+        })
+    }
+}
+
+export const updateAnotherUser = async (req, res) => {
+    try {
+        const { userId } = req.body
+        const data = req.body
+
+        const userUpdate = await User.findByIdAndUpdate(userId, data, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Usuario actualizado con exito!!",
+            userUpdate
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar otro usuario :(",
             error: err.message
         })
     }

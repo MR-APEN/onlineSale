@@ -1,5 +1,5 @@
 import { body} from "express-validator"
-import { emailExist, usernameExist } from "../helpers/db-validators.js"
+import { emailExist, usernameExist, userIdExist } from "../helpers/db-validators.js"
 import { validateField } from "./field-validator.js"
 import { deleteFileOnError } from "./delete-file-on-error.js"
 import { handleErrors } from "./handle-erros.js"
@@ -34,6 +34,15 @@ export const loginValidator = [
 
 export const updateUserValidator = [
     validateJWT,
+    validateField,
+    handleErrors
+]
+
+export const updateAnotherUserValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    body("userId", "El ID del usuario a modificar es requerido").notEmpty(),
+    body("userId").custom(userIdExist),
     validateField,
     handleErrors
 ]
