@@ -1,5 +1,5 @@
-import { body} from "express-validator"
-import { emailExist, usernameExist, userIdExist } from "../helpers/db-validators.js"
+import { body, param} from "express-validator"
+import { emailExist, usernameExist, userExist } from "../helpers/db-validators.js"
 import { validateField } from "./field-validator.js"
 import { deleteFileOnError } from "./delete-file-on-error.js"
 import { handleErrors } from "./handle-erros.js"
@@ -42,7 +42,7 @@ export const updateAnotherUserValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
     body("userId", "El ID del usuario a modificar es requerido").notEmpty(),
-    body("userId").custom(userIdExist),
+    body("userId").custom(userExist),
     validateField,
     handleErrors
 ]
@@ -65,7 +65,7 @@ export const updateAnotherPasswordValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
     body("userId", "El ID del usuario a modificar es requerido").notEmpty(),
-    body("userId").custom(userIdExist),
+    body("userId").custom(userExist),
     body("newPassword").isStrongPassword({
         minLength: 8,
         minLowercase: 1,
@@ -79,6 +79,15 @@ export const updateAnotherPasswordValidator = [
 
 export const uploadProfilePictureValidator = [
     validateJWT,
+    validateField,
+    deleteFileOnError,
+    handleErrors
+]
+
+export const updateAnotherProfilePictureValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    param("uid").custom(userExist),
     validateField,
     deleteFileOnError,
     handleErrors
