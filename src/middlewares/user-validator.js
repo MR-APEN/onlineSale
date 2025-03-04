@@ -92,3 +92,9 @@ export const updateAnotherProfilePictureValidator = [
     deleteFileOnError,
     handleErrors
 ]
+
+export const deleteUserValidator = [
+    validateJWT,
+    validateField,
+    handleErrors
+]

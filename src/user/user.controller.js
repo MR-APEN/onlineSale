@@ -233,3 +233,33 @@ export const updateAnotherProfilePicture = async (req, res) => {
         })
     }
 }
+
+export const  deleteUser = async(req, res) => {
+    try{
+        const { _id } = req.usuario
+        const { password } = req.body
+
+        const user = await User.findById(_id)
+        const matchPassword = await verify(user.password, password)
+        if(!matchPassword) {
+            return res.status(400).json({
+                message: "Tienes que ingresar tu contraseña para eliminarte"
+            })
+        }
+
+        const userDelete = await User.findByIdAndUpdate(_id, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Usuario eliminado con exito!!",
+            userDelete
+        })
+        
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al intentar eliminar usuario",
+            error: err.message
+        })
+    }
+}
