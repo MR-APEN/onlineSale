@@ -61,6 +61,13 @@ export const updateAnotherUser = async (req, res) => {
         const { userId } = req.body
         const data = req.body
 
+        const user = await User.findById(userId)
+        if(user.role === "ADMIN_ROLE") {
+            return res.status(402).json({
+                message: "No puedes editar un usuario administrador"
+            })
+        }
+
         const userUpdate = await User.findByIdAndUpdate(userId, data, {new: true})
 
         return res.status(200).json({
@@ -121,6 +128,11 @@ export const updateAnotherPassword = async (req, res) => {
         const { userId, newPassword } = req.body
         
         const user = await User.findById(userId)
+        if(user.role === "ADMIN_ROLE") {
+            return res.status(402).json({
+                message: "No puedes editar la contraseña de un usuario administrador"
+            })
+        }
 
         const matchPassword = await verify(user.password, newPassword)
         if(matchPassword){
@@ -193,6 +205,12 @@ export const updateAnotherProfilePicture = async (req, res) => {
         }
 
         const user = await User.findById(uid)
+        if(user.role === "ADMIN_ROLE") {
+            return res.status(402).json({
+                message: "No puedes editar la foto de perfil de un usuario administrador"
+            })
+        }
+
         if(user.profilePicture){
             const oldProfilePicture = join(__dirname, "../../public/uploads/profile-pictures", user.profilePicture)
             await fs.unlink(oldProfilePicture)
