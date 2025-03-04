@@ -98,3 +98,11 @@ export const deleteUserValidator = [
     validateField,
     handleErrors
 ]
+
+export const deleteAnotherUserValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    body("userId").custom(userExist),
+    validateField,
+    handleErrors
+]

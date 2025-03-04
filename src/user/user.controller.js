@@ -254,11 +254,39 @@ export const  deleteUser = async(req, res) => {
             message: "Usuario eliminado con exito!!",
             userDelete
         })
-        
+
     } catch (err) {
         return res.status(500).json({
             success: false,
             message: "Error al intentar eliminar usuario",
+            error: err.message
+        })
+    }
+}
+
+export const deleteAnotherUser = async (req, res) => {
+    try{
+        const { userId } = req.body
+
+        const user = await User.findById(userId)
+        if(user.role === "ADMIN_ROLE") {
+            return res.status(402).json({
+                message: "No puedes eliminar a un usuario Administrador"
+            })
+        }
+
+        const userDelete = await User.findByIdAndUpdate(userId, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Usuario eliminado con exito!!",
+            userDelete
+        })
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar otro usuario",
             error: err.message
         })
     }
