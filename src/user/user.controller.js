@@ -1,5 +1,5 @@
 import User from "../user/user.model.js"
-import { hash } from "argon2"
+import { hash, verify } from "argon2"
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
 
@@ -72,6 +72,37 @@ export const updateAnotherUser = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error al actualizar otro usuario :(",
+            error: err.message
+        })
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    try {
+        const { _id } = req.usuario
+        const { newPassword } = req.body
+
+        const user = await User.findById(_id)
+
+        const matchPassword = await verify(user.password, newPassword)
+        if(matchPassword){
+            return res.status(400).json({
+                message: "La contraseña nueva no puede ser igual a la anterior"
+            })
+        }
+
+        const encryptedPassword = await hash(newPassword)
+        await User.findByIdAndUpdate(_id, {password: encryptedPassword}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Contraseña actualizada con exito!!"
+        })
+        
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al intentar actualizar contraseña :(",
             error: err.message
         })
     }

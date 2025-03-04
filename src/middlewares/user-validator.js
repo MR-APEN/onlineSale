@@ -46,3 +46,17 @@ export const updateAnotherUserValidator = [
     validateField,
     handleErrors
 ]
+
+export const updatePasswordValidator = [
+    validateJWT,
+    body("newPassword", "El password es requerido").notEmpty(),
+    body("newPassword").isStrongPassword({
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1
+    }),
+    validateField,
+    handleErrors
+]

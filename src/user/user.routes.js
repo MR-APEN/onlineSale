@@ -1,6 +1,6 @@
 import { Router } from "express"
-import { updateUser, updateAnotherUser } from "./user.controller.js"
-import { updateUserValidator, updateAnotherUserValidator } from "../middlewares/user-validator.js"
+import { updateUser, updateAnotherUser, updatePassword } from "./user.controller.js"
+import { updateUserValidator, updateAnotherUserValidator, updatePasswordValidator } from "../middlewares/user-validator.js"
 
 const router = Router()
 
@@ -36,5 +36,7 @@ const router = Router()
 router.put("/updateUser", updateUserValidator, updateUser)
 
 router.put("/updateAnotherUser", updateAnotherUserValidator, updateAnotherUser)
+
+router.patch("/updatePassword", updatePasswordValidator, updatePassword)
 
 export default router
