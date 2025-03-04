@@ -60,3 +60,19 @@ export const updatePasswordValidator = [
     validateField,
     handleErrors
 ]
+
+export const updateAnotherPasswordValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    body("userId", "El ID del usuario a modificar es requerido").notEmpty(),
+    body("userId").custom(userIdExist),
+    body("newPassword").isStrongPassword({
+        minLength: 8,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1
+    }),
+    validateField,
+    handleErrors
+]

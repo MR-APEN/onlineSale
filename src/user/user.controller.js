@@ -80,7 +80,7 @@ export const updateAnotherUser = async (req, res) => {
 export const updatePassword = async (req, res) => {
     try {
         const { _id } = req.usuario
-        const { newPassword } = req.body
+        const { newPassword, oldPassword } = req.body
 
         const user = await User.findById(_id)
 
@@ -91,6 +91,13 @@ export const updatePassword = async (req, res) => {
             })
         }
 
+        const matchOldPassword = await verify(user.password, oldPassword)
+        if(!matchOldPassword){
+            return res.status(400).json({
+                message: "Tienes que ingresar tu contraseña actual para poder cambiarla"
+            })
+        }
+
         const encryptedPassword = await hash(newPassword)
         await User.findByIdAndUpdate(_id, {password: encryptedPassword}, {new: true})
 
@@ -98,11 +105,40 @@ export const updatePassword = async (req, res) => {
             success: true,
             message: "Contraseña actualizada con exito!!"
         })
-        
+
     } catch (err) {
         res.status(500).json({
             success: false,
             message: "Error al intentar actualizar contraseña :(",
+            error: err.message
+        })
+    }
+}
+
+export const updateAnotherPassword = async (req, res) => {
+    try {
+        const { userId, newPassword } = req.body
+        
+        const user = await User.findById(userId)
+
+        const matchPassword = await verify(user.password, newPassword)
+        if(matchPassword){
+            return res.status(400).json({
+                message: "La contraseña nueva no puede ser igual a la anterior"
+            })
+        }
+
+        const encryptedPassword = await hash(newPassword)
+        await User.findByIdAndUpdate(userId, {password: encryptedPassword}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Contraseña actualizada con exito!!"
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al intentar actualizar contraseña de otro usuario :(",
             error: err.message
         })
     }
