@@ -76,3 +76,10 @@ export const updateAnotherPasswordValidator = [
     validateField,
     handleErrors
 ]
+
+export const uploadProfilePictureValidator = [
+    validateJWT,
+    validateField,
+    deleteFileOnError,
+    handleErrors
+]
