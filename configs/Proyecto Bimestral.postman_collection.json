@@ -1,11 +1,575 @@
 {
 	"info": {
-		"_postman_id": "a7a51cd9-bd0e-49cf-b6fd-6a343dfd00fb",
+		"_postman_id": "9620da58-aead-4211-8a7e-2459f5ea04ad",
 		"name": "Proyecto Bimestral",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
 		"_exporter_id": "37585551"
 	},
 	"item": [
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Actualizar usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyZGQwY2M0YTI3NGYzYmFmYzAiLCJpYXQiOjE3NDEwNzMyMTgsImV4cCI6MTc0MTA3NjgxOH0.L8XZrUNfHNtXcOWN3BhnWoBMKmnsqudVaWiqtlW2BG4"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"surname\": \"Solares\",\r\n    \"username\": \"jalva\",\r\n    \"email\": \"jsolares@gmail.com\",\r\n    \"phone\": \"12212332\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/updateUser"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YjYxYWE4NzUxMGQyNTUzMDRjMzEiLCJpYXQiOjE3NDEwNzYwMTMsImV4cCI6MTc0MTA3OTYxM30.r7O3FE6Vr4zvycxAvUfvKombNVV4bV3WeYhI7GOQgzo"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"Alva4120@\",\r\n    \"oldPassword\": \"Jalva12345$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/updatePassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar foto de perfil",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YmU5MzI0NjFlNDhiN2EyMTE4MTUiLCJpYXQiOjE3NDEwNzgxNzAsImV4cCI6MTc0MTA4MTc3MH0.gBeVpU6lbBIXCOVJXnas20tfxiPnCgmpt0-fAFUmJIE"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/aleap/Downloads/gato3.jpeg"
+								}
+							]
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/updateProfilePicture"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ODFmY2JhYjA1N2VkYWNiNGY1MzgiLCJpYXQiOjE3NDExMjgyMTQsImV4cCI6MTc0MTEzMTgxNH0.QjcLUCFcunzE6Np_1CtkXG76qNuezhdEBFB6C4acKYM"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"1245Apen$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/deleteUser"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Actualizar otro usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDEwNzM2NDQsImV4cCI6MTc0MTA3NzI0NH0.odM2tZ03RcrlkHgw-RClFPP8qMgRnV8hkWS-x3LUWQY"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan\",\r\n    \"surname\": \"Cruz\",\r\n    \"username\": \"jcruz\",\r\n    \"email\": \"jcruz@gmail.com\",\r\n    \"phone\": \"23214152\",\r\n    \"userId\": \"67c6ab2dd0cc4a274f3bafc0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/updateAnotherUser"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar contraseña de otro usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDEwNzY5NzEsImV4cCI6MTc0MTA4MDU3MX0.qSsoNA59azmAs75v6x9JrmxLVlM0EcVzD42GYWid_gA"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67c6b94a65cfd229e74d69a1\",\r\n    \"newPassword\": \"Juanito$$123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/updateAnotherPassword"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar foto de otro usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3NzNiNWY3ZmI3MzE2Y2VmODcxNzciLCJpYXQiOjE3NDExMjU4MjcsImV4cCI6MTc0MTEyOTQyN30.8cLr8gDOvGcPP1xNqkOhczl-Ad8ow0VQZrOBTJq2IGY"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": "/C:/Users/Informatica/Downloads/user5.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/user/updateAnotherProfilePicture/:uid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"user",
+								"updateAnotherProfilePicture",
+								":uid"
+							],
+							"variable": [
+								{
+									"key": "uid",
+									"value": "67c77407f7fb7316cef8717f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar otro usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M3ODYxZjQ0Mzk4YzAwMDgzNmFjZGIiLCJpYXQiOjE3NDExMjkyNTgsImV4cCI6MTc0MTEzMjg1OH0.dNUvpN-tfvCWmAqSGe7Jp8aHfOrVTYbzhPjOfnNOeok"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"67c77407f7fb7316cef8717f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/user/deleteAnotherUser"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Agregar categoría",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjEyNzQsImV4cCI6MTc0MTE2NDg3NH0.6OGFt-ILvCwZ1mJ1-RhmV0vVKPVZ02si619tjxFuZQQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cereales\",\r\n    \"description\": \"Categorìa para los Cereales\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/category/createCategory"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjEyNzQsImV4cCI6MTc0MTE2NDg3NH0.6OGFt-ILvCwZ1mJ1-RhmV0vVKPVZ02si619tjxFuZQQ"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/onlineSale/v1/category/getCategories"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjEyNzQsImV4cCI6MTc0MTE2NDg3NH0.6OGFt-ILvCwZ1mJ1-RhmV0vVKPVZ02si619tjxFuZQQ"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dulces\",\r\n    \"description\": \"Categorìa para gomitas, chocolates o dulces\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/category/updateCategory/:cid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"category",
+								"updateCategory",
+								":cid"
+							],
+							"variable": [
+								{
+									"key": "cid",
+									"value": "67c8097856495e794e12d25d"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categorias",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDEyMDYyMDYsImV4cCI6MTc0MTIwOTgwNn0.HwrSKVWpH7OuXW_GEqHUlmZQo3IIlMpdCEH1XW89Fbk"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/category/deleteCategory/:cid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"category",
+								"deleteCategory",
+								":cid"
+							],
+							"variable": [
+								{
+									"key": "cid",
+									"value": "67c8097856495e794e12d25d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Agregar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nucita Paquete 8U\",\r\n    \"price\": 10,\r\n    \"stock\": 0,\r\n    \"category\": \"67c8097856495e794e12d25d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/product/createProduct"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/onlineSale/v1/product/getProducts"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar producto por ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/product/getProductById/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"product",
+								"getProductById",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67c82568b6eb6d90fccec2fc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Superman toy\",\r\n    \"price\": 9,\r\n    \"stock\": 1,\r\n    \"category\": \"67c8035574e97b701f69b227\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/product/updateProduct/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"product",
+								"updateProduct",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67c82568b6eb6d90fccec2fc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar productos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/product/deleteProduct/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"product",
+								"deleteProduct",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67c824aa52dd287526f61614"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar productos agotados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/onlineSale/v1/product/getLowStockProducts"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar productos mas vendidos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2YWIyNmQwY2M0YTI3NGYzYmFmYmMiLCJpYXQiOjE3NDExNjk3MjAsImV4cCI6MTc0MTE3MzMyMH0.XIMOJysF12p6EMxJXKnnjrBJoE-YkJf4FpgGJkf8ORc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/onlineSale/v1/product/getTopProducts"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito de compra",
+			"item": [
+				{
+					"name": "Agregar Producto a Carrito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MDI3Yjc0ZTk3YjcwMWY2OWIyMWUiLCJpYXQiOjE3NDEyMTIxMDksImV4cCI6MTc0MTIxNTcwOX0.b_wcSa2SJNffUqm_ht2CRke1CRoykFqyP-D0Hp8jtw8"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pid\": \"67c824aa52dd287526f61614\",\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3002/onlineSale/v1/shopCart/addToCart"
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Registrar usuario",
 			"request": {
@@ -16,37 +580,37 @@
 					"formdata": [
 						{
 							"key": "name",
-							"value": "Jose",
+							"value": "Alejandro",
 							"type": "text"
 						},
 						{
 							"key": "surname",
-							"value": "Alvarez",
+							"value": "Apen",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "jalva",
+							"value": "jandro",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "jalvarez@gmail.com",
+							"value": "apen@gmail.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "Jalva12345$",
+							"value": "1245Apen$",
 							"type": "text"
 						},
 						{
 							"key": "profilePicture",
 							"type": "file",
-							"src": "/C:/Users/Informatica/Downloads/user1.jpg"
+							"src": "/C:/Users/aleap/Downloads/gato3.jpeg"
 						},
 						{
 							"key": "phone",
-							"value": "11224455",
+							"value": "41235463",
 							"type": "text"
 						}
 					]
@@ -61,19 +625,13 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "email",
-							"value": "jjax@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "Jax12345$",
-							"type": "text"
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Admin1\",\r\n    \"password\": \"Ja123456#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					]
+					}
 				},
 				"url": "http://localhost:3002/onlineSale/v1/auth/login"
 			},
