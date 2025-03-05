@@ -37,3 +37,28 @@ export const addToCart = async (req, res) => {
         })
     }
 }
+
+export const getShopCart = async (req, res) => {
+    try {
+        const { _id } = req.usuario
+
+        const cart = await ShopCart.findOne({user: _id}).populate("products.product").populate("user", "username")
+    
+        if(!cart) {
+            return res.status(404).json({
+                message: "No se encontraron productos en su carrito"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            cart
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al listar carrito del usuario",
+            error: err.message
+        })
+    }
+}

@@ -12,3 +12,9 @@ export const addToCartValidator = [
     validateField,
     handleErrors
 ]
+
+export const getShopCartValidator = [
+    validateJWT,
+    validateField,
+    handleErrors
+]
