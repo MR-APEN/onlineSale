@@ -8,6 +8,7 @@ import apiLimiter from "../src/middlewares/request-validator.js"
 import { swaggerDocs, swaggerUi } from "./documentation.js"
 import userRoute from "../src/user/user.routes.js"
 import categoryRoute from "../src/category/category.routes.js"
+import productRoute from "../src/product/product.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({extended: false}))
@@ -36,6 +37,7 @@ const routes = (app) => {
     app.use("/onlineSale/v1/auth", authRoute)
     app.use("/onlineSale/v1/user", userRoute)
     app.use("/onlineSale/v1/category", categoryRoute)
+    app.use("/onlineSale/v1/product", productRoute)
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 }
 
