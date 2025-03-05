@@ -550,14 +550,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MDI3Yjc0ZTk3YjcwMWY2OWIyMWUiLCJpYXQiOjE3NDEyMTIxMDksImV4cCI6MTc0MTIxNTcwOX0.b_wcSa2SJNffUqm_ht2CRke1CRoykFqyP-D0Hp8jtw8"
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MDI3Yjc0ZTk3YjcwMWY2OWIyMWUiLCJpYXQiOjE3NDEyMTY0NjQsImV4cCI6MTc0MTIyMDA2NH0.MFBWQtB_tdDGO3t9jdQp7eeOlWNGUesZKFZxcfOPEMk"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pid\": \"67c824aa52dd287526f61614\",\r\n    \"quantity\": 2\r\n}",
+							"raw": "{\r\n    \"pid\": \"67c82cf0ea7014933a1c7d6f\",\r\n    \"quantity\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -565,6 +565,56 @@
 							}
 						},
 						"url": "http://localhost:3002/onlineSale/v1/shopCart/addToCart"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar carrito de compra por user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MDI3Yjc0ZTk3YjcwMWY2OWIyMWUiLCJpYXQiOjE3NDEyMTY0NjQsImV4cCI6MTc0MTIyMDA2NH0.MFBWQtB_tdDGO3t9jdQp7eeOlWNGUesZKFZxcfOPEMk"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3002/onlineSale/v1/shopCart/getShopCart"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar producto de carrito",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M4MDI3Yjc0ZTk3YjcwMWY2OWIyMWUiLCJpYXQiOjE3NDEyMTY0NjQsImV4cCI6MTc0MTIyMDA2NH0.MFBWQtB_tdDGO3t9jdQp7eeOlWNGUesZKFZxcfOPEMk"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/onlineSale/v1/shopCart/deleteToCart/:pid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"onlineSale",
+								"v1",
+								"shopCart",
+								"deleteToCart",
+								":pid"
+							],
+							"variable": [
+								{
+									"key": "pid",
+									"value": "67c82cf0ea7014933a1c7d6f"
+								}
+							]
+						}
 					},
 					"response": []
 				}
@@ -626,7 +676,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"Admin1\",\r\n    \"password\": \"Ja123456#\"\r\n}",
+					"raw": "{\r\n    \"username\": \"jandro\",\r\n    \"password\": \"1245Apen$\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
