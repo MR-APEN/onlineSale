@@ -2,12 +2,17 @@ import { Schema, model } from 'mongoose';
 
 const categorySchema = Schema({
     name: {
-      type: String,
-      required: true,
-      unique: true,
+        type: String,
+        required: true,
+        unique: true,
     },
     description: {
-      type: String
+        type: String,
+        required: true,
+    },
+    status: {
+        type: Boolean,
+        default: true,
     }  
 },
 {
