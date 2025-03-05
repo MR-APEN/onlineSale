@@ -1,4 +1,4 @@
-import { body } from "express-validator"
+import { body, param } from "express-validator"
 import { validateField } from "./field-validator.js"
 import { handleErrors } from "./handle-erros.js"
 import { validateJWT } from "./validator-jwt.js"
@@ -15,6 +15,14 @@ export const addToCartValidator = [
 
 export const getShopCartValidator = [
     validateJWT,
+    validateField,
+    handleErrors
+]
+
+export const deleteFromShopCartValidator = [
+    validateJWT,
+    param("pid", "El id del producto es requerido").notEmpty(),
+    param("pid").custom(productExist),
     validateField,
     handleErrors
 ]

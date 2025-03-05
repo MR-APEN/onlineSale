@@ -62,3 +62,32 @@ export const getShopCart = async (req, res) => {
         })
     }
 }
+
+export const deleteFromShopCart = async (req, res) => {
+    try {
+        const { _id } = req.usuario
+        const { pid } = req.params
+    
+        const cart = await ShopCart.findOne({user: _id})
+        if(!cart) {
+            return res.status(404).json({
+                message: "No se encontro el carrito"
+            })
+        }
+
+        cart.products = cart.products.filter(product => product.product.toString() !== pid)
+        await cart.save()
+
+        return res.status(200).json({
+            succes: true,
+            message: "Producto eliminado del carrito",
+            cart
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar carrito",
+            error: err.message
+        })
+    }
+}
