@@ -19,4 +19,23 @@ export const createProduct = async (req, res) => {
             error: err.message 
         })
     }
+}
+
+export const getProducts = async (req, res) => {
+    try {
+        const products = await Product.find().populate("category").populate("category", "name")
+
+        return res.status(200).json({
+            success: true,
+            message: "Productos obtenidos con exito!!",
+            products
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener productos",
+            error: err.message
+        })
+    }
 }   
