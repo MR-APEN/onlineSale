@@ -15,3 +15,10 @@ export const createCategoryValidator = [
     validateField,
     handleErrors
 ]
+
+export const getCategoriesValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    validateField,
+    handleErrors
+]
