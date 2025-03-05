@@ -38,4 +38,46 @@ export const getProducts = async (req, res) => {
             error: err.message
         })
     }
-}   
+}
+
+export const getProductById = async (req, res) => {
+    try {
+        const { pid } = req.params
+
+        const product = await Product.findById(pid).populate("category", "name")
+
+        return res.status(200).json({
+            success: true,
+            message: "Producto obtenido con exito!!",
+            product
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener producto",
+            error: err.message
+        })
+    }
+}
+
+export const updateProduct = async (req, res) => {
+    try {
+        const { pid } = req.params
+        const data = req.body
+
+        const productUpdate = await Product.findByIdAndUpdate(pid, data, {new: true})
+        
+        return res.status(200).json({
+            success: true,
+            message: "Producto actualizado con exito!!",
+            productUpdate
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar producto",
+            error: err.message
+        })
+    }
+}

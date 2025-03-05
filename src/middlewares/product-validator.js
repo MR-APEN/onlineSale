@@ -1,5 +1,5 @@
-import { body } from "express-validator"
-import { nameProductExist } from "../helpers/db-validators.js"
+import { body, param } from "express-validator"
+import { nameProductExist, productExist } from "../helpers/db-validators.js"
 import { validateField } from "./field-validator.js"
 import { handleErrors } from "./handle-erros.js"
 import { validateJWT } from "./validator-jwt.js"
@@ -22,6 +22,25 @@ export const createProductValidator = [
 export const getProductValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE"),
+    validateField,
+    handleErrors
+]
+
+export const getProductByIdValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    param("pid", "No es un ID válido de MongoDB").isMongoId(),
+    param("pid").custom(productExist),
+    validateField,
+    handleErrors
+]
+
+export const updateProductValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    param("pid", "No es un ID válido de MongoDB").isMongoId(),
+    param("pid").custom(productExist),
+    body("name").custom(nameProductExist),
     validateField,
     handleErrors
 ]

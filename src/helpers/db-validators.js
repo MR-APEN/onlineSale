@@ -43,3 +43,10 @@ export const nameProductExist = async (name = "") => {
         throw new Error(`El producto ${name} ya fue registrado`)
     }
 }
+
+export const productExist = async (pid = "") => {
+    const exist = await Product.findById(pid)
+    if(!exist){
+        throw new Error(`No existe un producto con el ID: ${pid}`)
+    }
+}
