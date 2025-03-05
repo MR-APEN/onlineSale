@@ -72,3 +72,23 @@ export const updateCategory = async (req, res) => {
         })
     }
 }
+
+export const deleteCategory = async (req, res) => {
+    try {
+        const { cid } = req.params
+
+        await Category.findByIdAndUpdate(cid, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Categoria eliminada con exito!!"
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al intentar eliminar categoria :(",
+            error: err.message
+        })
+    }
+}
