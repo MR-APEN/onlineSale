@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "67c824aa52dd287526f61614"
+  },
+  "name": "Tiburones gomitas",
+  "price": 3.99,
+  "stock": 20,
+  "salesCount": 0,
+  "category": {
+    "$oid": "67c8b28c874ebe0d1380f583"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T10:17:14.101Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T20:24:27.756Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c82568b6eb6d90fccec2fc"
+  },
+  "name": "Superman toy",
+  "price": 9,
+  "stock": 1,
+  "salesCount": 0,
+  "category": {
+    "$oid": "67c8035574e97b701f69b227"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T10:20:24.016Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T10:40:09.710Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c82cf0ea7014933a1c7d6f"
+  },
+  "name": "Nucita Paquete 8U",
+  "price": 10,
+  "stock": 2,
+  "salesCount": 15,
+  "category": {
+    "$oid": "67c8b28c874ebe0d1380f583"
+  },
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T10:52:32.845Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T20:24:27.756Z"
+  }
+}]

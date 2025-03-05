@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "67c8cb30bd545a6e9d721fe7"
+  },
+  "user": {
+    "$oid": "67c8027b74e97b701f69b21e"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "67c824aa52dd287526f61614"
+      },
+      "quantity": 2,
+      "_id": {
+        "$oid": "67c8cb30bd545a6e9d721fe8"
+      }
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-03-05T22:07:44.907Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T23:16:53.798Z"
+  }
+}]

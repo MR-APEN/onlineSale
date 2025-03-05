@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "67c6ab26d0cc4a274f3bafbc"
+  },
+  "name": "Javier",
+  "surname": "Apen",
+  "username": "Admin1",
+  "email": "japen@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$Gvuergswh0gHt1wAZTWGAA$Y9N7OTrsQDngUN0K1KCjqM39Hk43J9kgx8C1NBsa6sc",
+  "profilePicture": "admin_image.jpg",
+  "phone": "22334455",
+  "role": "ADMIN_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c6b94a65cfd229e74d69a1"
+  },
+  "name": "Juan",
+  "surname": "Cruz",
+  "username": "cruzj",
+  "email": "cruz@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$MARhu3oKP9nz/DYm2briBg$hHQsgAYrA7o+QUhwq+YGtcKB9MqYVNz3jk76HsHZuLE",
+  "profilePicture": "gato2-1741076810503.png",
+  "phone": "41236547",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c6be932461e48b7a211815"
+  },
+  "name": "Jose",
+  "surname": "Alvarez",
+  "username": "jalva",
+  "email": "jalvarez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$MTTVAmItDxTO8GQ5uM8Gxg$QiQRZ7Kk9L8D5LDIxp9aaZ5iq/RlEBYcoVxqIsrtn5g",
+  "profilePicture": "gato3-1741078184817.jpeg",
+  "phone": "11224455",
+  "role": "CLIENT_ROLE",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "67c8027b74e97b701f69b21e"
+  },
+  "name": "Alejandro",
+  "surname": "Apen",
+  "username": "jandro",
+  "email": "apen@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$bOT4sYyyeSkhYYQd/OSUKQ$00FTzxoUz3vNAFH525jlgZWyXvPf/VohhRN4SSLNCM8",
+  "profilePicture": "gato3-1741161083862.jpeg",
+  "phone": "41235463",
+  "role": "CLIENT_ROLE",
+  "status": true
+}]

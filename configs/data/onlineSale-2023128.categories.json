@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "67c8035574e97b701f69b227"
+  },
+  "name": "Juguetes",
+  "description": "Categorìa para juguetes para niños",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T07:55:01.815Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T07:55:01.815Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c8097856495e794e12d25d"
+  },
+  "name": "Dulces",
+  "description": "Categorìa para gomitas, chocolates o dulces",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T08:21:12.950Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T20:24:27.746Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c8b28c874ebe0d1380f583"
+  },
+  "name": "Sin asignar",
+  "description": "Categoria por defecto, asignar categoria ",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T20:22:36.850Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T20:22:36.850Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c8b4af7d359f662154012b"
+  },
+  "name": "Alimentos",
+  "description": "Categoria de alimentos",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-03-05T20:31:43.935Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-05T20:31:43.935Z"
+  }
+}]
