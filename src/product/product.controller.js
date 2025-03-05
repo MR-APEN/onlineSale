@@ -125,3 +125,23 @@ export const getLowStockProducts = async (req, res) => {
         })
     }
 }
+
+
+export const getTopProducts = async (req, res) => {
+    try {
+        const products = await Product.find().sort({salesCount: -1}).limit(5).populate("category", "name")
+
+        return res.status(200).json({
+            success: true,
+            message: "Productos más vendidos obtenidos con exito!!",
+            products
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener productos más vendidos",
+            error: err.message
+        })
+    }
+}

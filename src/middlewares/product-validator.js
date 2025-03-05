@@ -60,3 +60,10 @@ export const getLowStockProductsValidator = [
     validateField,
     handleErrors
 ]
+
+export const getTopProductsValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    validateField,
+    handleErrors
+]
