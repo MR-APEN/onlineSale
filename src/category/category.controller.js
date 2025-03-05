@@ -1,9 +1,10 @@
 import Category from "./category.model.js"
+import Product from "../product/product.model.js"
 
 export const defaultCategory = async () => {
     const defaultCategory = {
-        "name": "Alimentos",
-        "description": "Categoria de alimentos"
+        "name": "Sin asignar",
+        "description": "Categoria por defecto, asignar categoria "
     }
 
     const category = await Category.findOne({name: defaultCategory.name})
@@ -78,6 +79,9 @@ export const deleteCategory = async (req, res) => {
         const { cid } = req.params
 
         await Category.findByIdAndUpdate(cid, {status: false}, {new: true})
+        const defaultCategory = await Category.findOne({name: "Sin asignar"})
+
+        await Product.updateMany({category: cid}, {category: defaultCategory.id})
 
         return res.status(200).json({
             success: true,
