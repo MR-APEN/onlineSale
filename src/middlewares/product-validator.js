@@ -44,3 +44,19 @@ export const updateProductValidator = [
     validateField,
     handleErrors
 ]
+
+export const deleteProductValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    param("pid", "No es un ID válido de MongoDB").isMongoId(),
+    param("pid").custom(productExist),
+    validateField,
+    handleErrors
+]
+
+export const getLowStockProductsValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE"),
+    validateField,
+    handleErrors
+]

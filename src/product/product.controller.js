@@ -81,3 +81,47 @@ export const updateProduct = async (req, res) => {
         })
     }
 }
+
+export const deleteProduct = async (req, res) => {
+    try {
+        const { pid } = req.params
+
+        await Product.findByIdAndUpdate(pid, {status: false}, {new: true})
+
+        return res.status(200).json({
+            success: true,
+            message: "Producto eliminado con exito!!"
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al eliminar producto",
+            error: err.message
+        })
+    }
+}
+
+export const getLowStockProducts = async (req, res) => {
+    try {
+        const products = await Product.find({stock: 0}).populate("category", "name")
+        if(products.length === 0){
+            return res.status(404).json({
+                success: false,
+                message: "No hay productos con stock bajo"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Productos con stock bajo obtenidos con exito!!",
+            products
+        })
+
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al obtener productos con stock bajo",
+            error: err.message
+        })
+    }
+}
